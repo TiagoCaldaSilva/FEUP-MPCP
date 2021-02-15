@@ -5,7 +5,7 @@ Repository of MPCP curricular unit<br>
   <li>Resolution of the weekly exercises - <a href="https://github.com/TiagoCaldaSilva/FEUP-MPCP/tree/master/Trabalhos_Semanais">here</a></li>
   <li>Support material - <a href="https://github.com/TiagoCaldaSilva/FEUP-MPCP/tree/master/Aulas%20teoricas">here</a></li>
   <li>Quizzes and exams - <a href="https://github.com/TiagoCaldaSilva/FEUP-MPCP/tree/master/Avaliacao">here</a></li>
-  <li>Programming languages used: C, assembly</li>
+  <li>Programming languages used: <em>C, assembly</em></li>
 </ul>
  
 
