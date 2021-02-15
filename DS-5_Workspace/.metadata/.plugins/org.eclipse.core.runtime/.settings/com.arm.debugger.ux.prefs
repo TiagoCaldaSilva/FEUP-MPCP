@@ -1,0 +1,4 @@
+ConnectionManager.savedConnections=<?xml version\="1.0" encoding\="UTF-8"?>\n<connections>\n\t<connection current\="yes" mode\="debug" type\="com.arm.debugger.launcher2">MPCP_Project3</connection>\n\t<connection current\="no" mode\="debug" type\="com.arm.debugger.launcher2">MPCP_configuration</connection>\n</connections>\n
+PreferredTargetHasBeenSet=true
+debugger.should.auto.reload.symbols.preference=always
+eclipse.preferences.version=1

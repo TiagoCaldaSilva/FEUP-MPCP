@@ -1,0 +1,76 @@
+1 - Folha de instruções
+
+Para já, só interessam as primeiras 2 páginas.
+Exemplos:
+---ADD{S} rd, rn, op2 -> rd e rn podem ser registos X ou W
+op2 pode ser registo X ou W ou ainda valor 'immediate'
+---UMADDL xd, wn, wm, xa -> xd e xa tem de ser registo X, 
+wn e wm tem de ser registo W
+
+
+
+2 - Instruções básicas AArch64 - Exercícios 2 (todas as alíneas) + 3 (b + d) 
+
+Exercício 2:
+a) Salto só se W12 contiver 0x00000C90
+
+b) Salto nunca será tomado - instrução EOR coloca 0 no registo W12
+
+c) Salto se W12 pertencer a ] 0x00000100 ; 0xFFFFFFFF ]
+
+d) Salto se W12 pertencer a ] 0x00000100 ; 0x7FFFFFFF ]
+
+
+Exercício 3:
+
+b) 	mov 	X7, 0
+CICLO:	cbz	X0, FIM  // termina se X0 = 0
+	and	X1, X0, 1
+	add	X7, X7, X1 // adiciona 1 a X7 se bit for 1
+	lsr	X0, X0, 1
+	b	CICLO
+FIM:	...
+
+d)	Assumir que X0 contém endereço base do vetor e X1 contém comprimento do vetor
+
+	mov	X7, 0
+CICLO:	cbz	X1, FIM  // termina se X1 = 0	
+	LDRSW	X2, [X0]
+	and	X3, X2, 1
+	cbnz	X3, IMPAR
+	add	X7, X7, 1
+IMPAR:	add	X0, X0, 4 // 4 bytes por word (32 bits)
+	sub	X1, X1, 1
+	b	CICLO
+FIM:	...
+
+alternativa:
+
+	mov	X7, 0
+CICLO:	cbz	X1, FIM  // termina se X1 = 0	
+	LDRSW	X2, [X0]
+	ands	X3, X2, 1
+	b.ne	X3, IMPAR
+	add	X7, X7, 1
+IMPAR:	add	X0, X0, 4 // 4 bytes por word (32 bits)
+	sub	X1, X1, 1
+	b	CICLO
+FIM:	...
+
+
+0b1000100010101
+and
+0b0000000000001
+
+1 ou 0
+
+
+3 - Instruções AArch64 adicionais - Exercícios 1 + 3 (b) + 4 (b) + 5 (a + c)
+
+
+void -> rotina não retorna nada
+
+
+
+
+Se for preciso operar sobre vetor - precisamos do endereço base

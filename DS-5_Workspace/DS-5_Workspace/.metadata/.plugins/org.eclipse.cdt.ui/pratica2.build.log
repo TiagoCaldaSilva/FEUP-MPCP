@@ -1,0 +1,15 @@
+02:31:04 **** Incremental Build of configuration Debug for project pratica2 ****
+make all 
+'Building file: ../src/pratica2.c'
+'Invoking: GCC C Compiler 7.3.1 [aarch64-elf]'
+aarch64-elf-gcc.exe -O0 -g -Wall -MMD -MP -MF"src/pratica2.d" -MT"src/pratica2.o" -c -o "src/pratica2.o" "../src/pratica2.c"
+'Finished building: ../src/pratica2.c'
+' '
+'Building target: pratica2.axf'
+'Invoking: GCC C Linker 7.3.1 [aarch64-elf]'
+aarch64-elf-gcc.exe --specs=aem-ve.specs -o "pratica2.axf" "src/Adicionais.o" "src/Exercício para entregar 1.o" "src/checkrange_up201906045_1MIEIC01.o" "src/countcommon_up201906045_1MIEIC01.o" "src/ex1_up201906045_1MIEIC01.o" "src/exercício_1.o" "src/pratica2.o" "src/soma.o"  
+'Finished building target: pratica2.axf'
+' '
+
+02:31:05 Build Finished (took 668ms)
+

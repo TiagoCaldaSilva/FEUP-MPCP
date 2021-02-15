@@ -1,0 +1,121 @@
+1 - Analisar soluções dos exercícios da aula anterior - Instruções AArch64 adicionais  7 e) deteção de overflow + 9 a)
+https://community.arm.com/developer/ip-products/processors/b/processors-ip-blog/posts/detecting-overflow-from-mul
+
+9 a)
+
+depois de UBFX
+W2 -> 0x00000012
+
+depois de BFI
+W1 -> 0xAB120000
+
+2 - Pilha e subrotinas - 2 + 3 + 4 a)
+
+
+
+2 - 
+
+Inicialmente:
+
+Endereço Conteúdo
+0x7010 0x05
+0x7008 0x01
+0x7000 0x03
+0x6FF8 0x00
+0x6FF0 0x02
+
+X0 - 0x0E
+X1 - 0x07
+X2 - ?
+SP - 0x7000
+
+Depois de STR: (corresponde a operação push)
+
+Endereço Conteúdo
+0x7010 0x05
+0x7008 0x01
+0x7000 0x03
+0x6FF8 0x00
+0x6FF0 0x0E
+
+X0 - 0x0E
+X1 - 0x07
+X2 - ?
+SP - 0x6FF0
+
+Depois de LTR: (corresponde a operação pop)
+
+Endereço Conteúdo
+0x7010 0x05
+0x7008 0x01
+0x7000 0x03
+0x6FF8 0x00
+0x6FF0 0x0E
+
+X0 - 0x0E
+X1 - 0x07
+X2 - 0x0E
+SP - 0x7000
+
+Depois de STP: (corresponde a duas operações push)
+
+Endereço Conteúdo
+0x7010 0x05
+0x7008 0x01
+0x7000 0x03
+0x6FF8 0x0E
+0x6FF0 0x07
+
+X0 - 0x0E
+X1 - 0x07
+X2 - 0x0E
+SP - 0x6FF0
+
+
+3 
+
+a) Calcula expressão x^2 + 3*x + 1
+
+	Se x = 7 obtemos 71
+
+b)
+no ínicio:
+POLI:		stp	X29, X30, [SP, -16]!
+		mov	X29, SP
+		str	X20, [SP, -16]!
+		...
+
+no fim:
+		...
+		ldr	X20, [SP], 16
+		ldp	X29, X30, [SP], 16
+		RET
+
+Alternativa:
+
+no ínicio:
+POLI:		stp	X29, X30, [SP, -32]!
+		mov	X29, SP
+		str	X20, [SP, 16]
+		...
+
+no fim:
+		...
+		ldr	X20, [SP, 16]
+		ldp	X29, X30, [SP], -32
+		RET
+
+c)
+<1>
+X30
+X29
+-
+X20
+
+<2>
+(vazio)
+
+
+
+
+

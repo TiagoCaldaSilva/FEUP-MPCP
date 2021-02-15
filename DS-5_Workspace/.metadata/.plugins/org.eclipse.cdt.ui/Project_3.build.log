@@ -1,0 +1,20 @@
+23:58:45 **** Incremental Build of configuration Debug for project Project_3 ****
+make all 
+'Building file: ../src/freqchars_up201906045_1MIEIC01.s'
+'Invoking: GCC Assembler 7.3.1 [aarch64-elf]'
+aarch64-elf-as.exe -g -c -o "src/freqchars_up201906045_1MIEIC01.o" "../src/freqchars_up201906045_1MIEIC01.s"
+'Finished building: ../src/freqchars_up201906045_1MIEIC01.s'
+' '
+'Building file: ../src/pratica3.c'
+'Invoking: GCC C Compiler 7.3.1 [aarch64-elf]'
+aarch64-elf-gcc.exe -O0 -g -Wall -MMD -MP -MF"src/pratica3.d" -MT"src/pratica3.o" -c -o "src/pratica3.o" "../src/pratica3.c"
+'Finished building: ../src/pratica3.c'
+' '
+'Building target: Project_3.axf'
+'Invoking: GCC C Linker 7.3.1 [aarch64-elf]'
+aarch64-elf-gcc.exe --specs=aem-ve.specs -o "Project_3.axf"  ./src/Exercícios.o ./src/calculator_up201906045_1MIEIC01.o ./src/estep_up201906045_1MIEIC01.o ./src/freqchars_up201906045_1MIEIC01.o ./src/pratica3.o   
+'Finished building target: Project_3.axf'
+' '
+
+23:58:47 Build Finished (took 2s.509ms)
+

@@ -1,0 +1,12 @@
+11:03:41 **** Incremental Build of configuration Debug for project Prática 4 ****
+make all 
+'Building file: ../src/Prática 4.c'
+'Invoking: GCC C Compiler 7.3.1 [aarch64-elf]'
+aarch64-elf-gcc.exe -O0 -g -Wall -MMD -MP -MF"src/Prática 4.d" -MT"src/Prática\ 4.d" -c -o "src/Prática 4.o" "../src/Prática 4.c"
+process_begin: CreateProcess(NULL, aarch64-elf-gcc.exe -O0 -g -Wall -MMD -MP "-MFsrc/Prática 4.d" "-MTsrc/Prática\ 4.d" -c -o "src/Prática 4.o" "../src/Prática 4.c", ...) failed.
+make (e=2): O sistema não conseguiu localizar o ficheiro especificado.
+
+make: *** [src/subdir.mk:26: src/Prática 4.o] Error 2
+
+11:03:43 Build Finished (took 1s.431ms)
+

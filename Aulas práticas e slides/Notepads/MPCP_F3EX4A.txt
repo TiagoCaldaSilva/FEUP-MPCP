@@ -1,0 +1,77 @@
+Tiago Silva- up201906045
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Código em C:
+extern void iv(int v[], int x);
+
+int main()
+{
+	int v[] = {1,2,3,4,5,6,7};
+	int x = 7;
+	iv(v, x);
+	for(int i = 0; i < x; i++)
+	{
+		printf("%d\n", v[i]);
+	}
+	return 1;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Sub-Rotina:
+.text
+.global iv
+.type iv, "function"
+iv:			stp x29, x30, [SP, #-16]!	//guardar LR e FP
+			mov x6, x1			//para ter a quantidade de elementos em dois registos diferentes(push & pop)
+			mov x5, 0			//registo que vai servir para verificar se o número de elementos é par ou não
+			mov w9, #16
+			mov w10, #-8
+			smull x3, w1, w10		//para verificar depois se o espaço reservado é multiplo de 16, quantidade de espaço que vão ocupar os elementos
+			mov x4, x3
+			sdiv x4, x4, x9
+			smull x4, w4, w9		//para verificar x3 % 16
+			cmp x4, x3
+			b.ne ADD 			//se forem iguais então X3 % 16 = 0, se forem diferentes X3 % 16 = 8
+T:			mov x29, SP			//localizar FP
+			add SP, SP, x3			//Stack Pointer está a reservar espaço para todo o vetor, sendo que x3 é múltiplo de 16
+			neg x3, x3			//módulo de x3
+			mov x4, x3
+			cbz x5, LOOP			//se houver um número par de elementos pode passar para o LOOP pois todo o espaço reservado vai ser utilizado
+			sub x3, x3, #8			//se houver um número ímpar não vai escrever na posição mais alta da pilha (posição imediatamente a seguir x29)
+			mov x4, x3			//atualizar a quantidade de bits que os elementos vão ocupar
+
+LOOP:			cbz x1, WAIT
+			ldrsw x2, [x0]			//x2 tem o inteiro presente em x0
+			str x2, [SP, x3]		//guardar na pilhao o valor
+			sub x3, x3, 8			//para posteriormente dar push na posição do topo
+			add x0, x0, 4			//avançar posição de x0
+			sub x1, x1, 1			//diminuir o numero de elementos que ainda se tem de guardar
+			b LOOP
+
+
+ADD:			add x3, x3, #-8 		//stack pointer tem de ser múltiplo de 16, se veio para aqui é porque lhe faltam 8 para o ser
+			mov x5, 1			//x5 = 1 se tem numero impar de elementos
+			b T
+
+
+WAIT:			add x3, x3, #8			//após correr os valores todos de x0, x3 ficou a 0 sendo que o último valor em que escreveu foi em x3 = 8
+			mov x12, 2
+			sdiv x4, x4, x12
+			sub x0, x0, x4			//voltar à posição inicial de x0 para escrever lá os valores
+
+
+LOOP1:			cbz x6, FIM			//quando x6 (numero total de elementos) = 0, chegamos ao final
+			ldrsw x7, [SP, x3]		//load do valor guardado em memória, na última posição escrita x3 = 8
+			str w7, [x0]			//store em x0
+			add x0, x0, 4			//passar para a posição seguinte
+			add x3, x3, 8			//passar para a posição anterior para dar pop
+			sub x6, x6, 1
+			b LOOP1
+
+
+TTT:			sub x3, x3, #8
+			b R
+FIM: 			cbz x5, TTT			//se x5 = 0, x3 tem mais 8 valores do que devia de ter;antes de se alocar espaço para os elementos do vetor, x3 = -x, lgo agora tem de se adicionar a SP x
+R:			add SP, SP, x3			//se x5 = 1, x3 = 8+(numero de elementos * 8), sendo que tem mais uma posição que foi acrescentada para que SP % 16 = 0
+			ldp x29, x30, [SP], #16
+			ret

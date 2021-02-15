@@ -1,0 +1,13 @@
+1 - Alteração da avaliação:
+	- Entrega obrigatória de exercícios via Moodle
+		- Estes trabalhos são obrigatórios, mas não contam para a classificação à UC. 
+		Têm o objetivo importante de permitir a cada estudante melhorar e 
+		avaliar o estado das suas competências.
+	- Valorização por participação nas aulas (por exemplo: partilhar o ecrâ com a turma para mostrar
+		como algum exercício foi resolvido) (ainda a confirmar)
+
+2 - Instruções AArch64 adicionais - 4 (b) + 5 (a + c) + 6 (a) + 10
+
+3 - Primeiro exercício de entrega obrigatória (entregar até ao final do dia de amanhã 24-03-2020)
+
+

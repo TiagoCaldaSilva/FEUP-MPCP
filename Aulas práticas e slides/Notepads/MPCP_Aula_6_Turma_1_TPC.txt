@@ -1,0 +1,12 @@
+Escrever e testar programas que permitam calcular o número
+de valores de um vetor de tamanho N (valores com sinal e do tipo halfword) 
+que simultaneamente pertencem ao intervalo [a; b] e verificam P(x).
+
+P(x): x é ímpar
+
+Protótipo da função a invocar em C: 
+int EX1(short int *v, long N, int a, int b)
+
+Submeter no Moodle o ficheiro de código assembly até dia 24-03-2020 ao final do dia, 
+gravando o ficheiro com o seguinte nome:
+->   ex1_up*********_1MIEIC01.s

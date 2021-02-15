@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="    char lett[] = {&apos;p&apos;, &apos;a&apos;, &apos;u&apos;, &apos;r&apos;};" key="selection"/>
+		<list key="findhistory">
+			<item value="    char lett[] = {&apos;p&apos;, &apos;a&apos;, &apos;u&apos;, &apos;r&apos;};"/>
+			<item value="/*"/>
+			<item value="#include &lt;stdio.h&gt;"/>
+		</list>
+	</section>
+</section>

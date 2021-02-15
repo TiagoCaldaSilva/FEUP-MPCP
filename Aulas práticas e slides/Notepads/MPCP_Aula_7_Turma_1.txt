@@ -1,0 +1,7 @@
+1 - Feedback TPC
+
+2 - Analisar soluções dos exercícios da aula anterior - 5 (a + c) + 6 (a) + 10
+
+3 - Instruções AArch64 adicionais - 7 (d + e) + 9 (a)
+
+4 - Pilha e subrotinas - 1 + 2

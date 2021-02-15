@@ -1,0 +1,23 @@
+15:13:18 **** Incremental Build of configuration Debug for project Project3 ****
+make all 
+'Building file: ../src/Exercícios.s'
+'Invoking: GCC Assembler 7.3.1 [aarch64-elf]'
+aarch64-elf-as.exe -g -c -o "src/Exercícios.o" "../src/Exercícios.s"
+../src/Exercícios.s: Assembler messages:
+../src/Exercícios.s: Warning: end of file in string; '"' inserted
+../src/Exercícios.s:8: Error: operand 2 must be an integer or stack pointer register -- `sub x2, x1, #1		//vezes que se vai repetir o processo'
+../src/Exercícios.s:10: Error: operand 2 must be an integer register -- `mul x3, x1, x3		//quantos bytes são necessários para passar para o último elemento'
+../src/Exercícios.s:11: Error: operand 2 must be an integer or stack pointer register -- `add x0, x0, x3		//x0 está agora no último elemento da sequência'
+../src/Exercícios.s:12: Error: unexpected characters following instruction at operand 2 -- `ldr d1, [x0], #-8	//último elemento, para iniciar o counter'
+../src/Exercícios.s:14: Error: unexpected characters following instruction at operand 2 -- `ldr d2, [x0], #-8'
+../src/Exercícios.s:15: Error: operand 2 must be a SIMD scalar register -- `fmul d1, d1, d0'
+../src/Exercícios.s:16: Error: operand 2 must be a floating-point register -- `fadd d1, d1, d2'
+../src/Exercícios.s:17: Error: operand 2 must be an integer or stack pointer register -- `sub x2, x2, 1'
+../src/Exercícios.s:20: Error: invalid floating-point constant at operand 2 -- `fmov d0, d1'
+../src/Exercícios.s:22: Warning: missing closing '"'
+../src/Exercícios.s:22: Error: unknown mnemonic `' -- `
+'
+make: *** [src/subdir.mk:24: src/Exercícios.o] Error 1
+
+15:13:22 Build Finished (took 4s.432ms)
+
